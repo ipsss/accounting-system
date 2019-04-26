@@ -6,9 +6,10 @@ using namespace std;
 
 class ACCOUNT {
   public:
-
+    
     ACCOUNT(string record,int date,int month,int year,double amount,string types,string account); //default constructor
-
+    
+    //Acessor
     string getrecord();
     int getdate();
     int getmonth();
@@ -16,7 +17,8 @@ class ACCOUNT {
     double getamount();
     string gettypes();
     string getaccount();
-
+    
+    //Mutator
     void setrecord(string new_record);
     void setdate(int new_date);
     void setmonth(int new_month);
