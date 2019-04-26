@@ -9,7 +9,7 @@ using namespace std;
 
 class SINTERESTCAL {
   public:
-    //Constructor of simple interest account
+    //Constructor of a simple interest calculator object
     SINTERESTCAL(string bank_no,double principal,double interest_rate,int duration,string time);
 
     //Accessor function
@@ -33,7 +33,7 @@ class SINTERESTCAL {
     //Function: User could choose the duration of deposit period
     void Durationselection(string time);
 
-    //Function: To find simple interest of the input interest rate, principal and the deposit duration
+    //Function: To find simple interest from the input interest rate, principal and the deposit duration according to the user
     double FindInterest(double principal,double interest_rate,double deposit_duration);
 
     //Function: File Output. Report file of the results
