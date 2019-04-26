@@ -1,11 +1,6 @@
 #ifndef __INCOMES_CPP__
 #define __INCOMES_CPP__
 #include "incomes.h"
-#include <iostream>
-#include <cstring>
-#include <vector>
-#include <fstream>
-#include <iomanip>
 #include "account.h"
 #include "account.cpp"
 using namespace std;
@@ -15,7 +10,7 @@ vector<ACCOUNT> INCOMES::getincome() {return Incomes;}
 unsigned int INCOMES::getIndex() {return index;}
 
 void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes){
-  unsigned int new_index;  int search_date,search_month,search_year; double search_amount;
+  unsigned int index;  int search_date,search_month,search_year; double search_amount;
   string search_types,search_account;
   cout << "Enter the date: " << endl;
   cin >> search_date;
@@ -32,7 +27,7 @@ void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes){
   getline(cin,search_account);
   for (int i=0; i < Incomes.size(); i++) {
     if (Incomes[i].getdate()==search_date&&Incomes[i].getmonth()==search_month&&Incomes[i].getyear()==search_year&&Incomes[i].getamount()==search_amount&&Incomes[i].gettypes()==search_types&&Incomes[i].getaccount()==search_account)
-      index=new_index;
+      index=i;
     else {
       cout << "Result not found!" << endl;
     }
@@ -41,14 +36,35 @@ void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes){
 void INCOMES::AddIncomes(ACCOUNT new_account){
   Incomes.push_back(new_account);
 }
+
+//BUGGED
 void INCOMES::DeleteIncomes(Incomes,SearchIncomes(Incomes)){
   Incomes.erase(Incomes.begin()+index);
 }
+
 void INCOMES::EditIncomes(ACCOUNT new_account,unsigned int index){
   Incomes[index]=new_account;
 }
 
-//void SortIncomes(vector<ACCOUNT>);
+bool compare(ACCOUNT left, ACCOUNT right){
+  if (left.getyear() > right.getyear()){
+    return true;
+  }else if (left.getmonth() > right.getmonth()){
+    return true;
+  }else if (left.getdate() > right.getdate()){
+    return true;
+  }else if (left.getamount() > right.getamount()){
+    return true;
+  }else {
+    return false;
+  }
+}
+
+void SortIncomes(vector<ACCOUNT> &Incomes){
+  sort(Incomes.begin(),Incomes.end(),compare);
+}
+
+
 void INCOMES::ReadFromIncomes(vector<ACCOUNT> Incomes) {
   for (int i = 0; i < Incomes.size(); i++) {
     cout << Incomes[i].getrecord() << endl;
@@ -61,6 +77,22 @@ void INCOMES::ReadFromIncomes(vector<ACCOUNT> Incomes) {
     cout << endl;
   }
 }
-//void INCOMES::WriteToIncomes() {}
+void INCOMES::WriteToIncomes(vector<ACCOUNT> Incomes) {
+  ofstream fout("userID_Incomes.txt");
+  if (!fout){
+    cout << "Cannot open text file!" << endl;
+  }
+    for (int i = 0; i < Incomes.size(); i++) {
+    fout << Incomes[i].getrecord() << endl;
+    fout << "Date: " << Incomes[i].getdate() << endl;
+    fout << "Month: " << Incomes[i].getmonth() << endl;
+    fout << "Year: " << Incomes[i].getyear() << endl;
+    fout << "Ammount: " << fixed << setprecision(5) << Incomes[i].getamount() << endl;
+    fout << "Types of Income: " << Incomes[i].gettypes() << endl;
+    fout << "The kind of account for the Income: " << Incomes[i].getaccount() << endl;
+    fout << endl;
+  }
+  fout.close();
+}
 
 #endif

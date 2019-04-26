@@ -1,6 +1,12 @@
 #ifndef __INCOMES_H__
 #define __INCOMES_H__
-
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <fstream>
+#include <iomanip>
 
 class INCOMES {
   public:
@@ -15,9 +21,9 @@ class INCOMES {
     void AddIncomes(ACCOUNT new_account);
     void DeleteIncomes(vector<ACCOUNT>,unsigned int);
     void EditIncomes(ACCOUNT new_account,unsigned int);
-    //void SortIncomes(vector<ACCOUNT>);
+    void SortIncomes(vector<ACCOUNT>);
     void ReadFromIncomes(vector <ACCOUNT>);
-    //void WriteToIncomes();
+    void WriteToIncomes(vector<ACCOUNT> Incomes);
   
   private:
     vector<ACCOUNT> Incomes;
