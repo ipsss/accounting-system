@@ -6,14 +6,17 @@
 #include "Expenses.cpp"
 #include "Timesetting.h"
 #include "Timesetting.cpp"
+#include "Interestcal.h"
+#include "Interestcal.cpp"
 #include "BudgetSetting.h"
 #include "BudgetSetting.cpp"
 #include <iomanip>
 
 int main() {
-  string temp1,id,password,commend,record,types,account;
-  int date,month,year,num;
-  double amount,Total_Expense;
+  string temp1,id,password,commend,record,types,account,bank_no,time;
+  int date,month,year,num,duration;
+  double amount,principal,interest_rate;
+  double Total_Expense=0.0;
   cout << "Welcome to this accounting system." << endl;
   cout << "Have you create your account?" << endl;
   cin >> temp1;
@@ -48,6 +51,7 @@ int main() {
     cout << "Please restart again" <<endl;
     exit(1);
   }
+  
   USER u1(id,password);
   INCOMES MyIncomes;
   EXPENSES MyExpenses;
@@ -77,6 +81,7 @@ int main() {
         }
       }
     }
+    
     else if (commend=="Add Income") {
       cout << "How many incomes you want to add?" << endl;
       cin >> num;
@@ -162,6 +167,7 @@ int main() {
         MyExpenses.AddExpenses(MyAccount);
       }
     }
+    
     else if (commend=="Read Expense Records")
       MyExpenses.ReadFromExpenses(MyExpenses.getExpenses());
 
@@ -170,6 +176,23 @@ int main() {
       cin >> new_budget_setting;
       SetBudget(budget_setting,new_budget_setting);
       BudgetAlert(budget_setting,Total_Expense);
+    }
+    
+    else if (commend=="Use Interest Calculator") {
+      cout << "Please input our deposit account no.:" << endl;
+      getline(cin,bank_no);
+      cout << "Please input the principal (P):" << endl;
+      cin >> principal;
+      cout << "Please input the interest rate (r):" << endl;
+      cin >> interest_rate;
+      cout << "Please input the time length. You can choose year,half-year,quarter,month or day." << endl;
+      cin >> time;
+      cout << "Please input the deposit duration (t)" << endl;
+      cout << "e.g. if you choose time length as year and your input is 5, the deposit duration would be 5 years."<< endl;
+      cin >> duration;
+      SINTERESTCAL MyInterest(bank_no,principal,interest_rate,duration,time);
+      MyInterest.Durationselection(MyInterest.getTime());
+      MyInterest.WriteInterest(id);
     }
 
     cout << "What do you want to do?" << endl;
