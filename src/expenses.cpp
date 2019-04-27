@@ -128,7 +128,7 @@ void EXPENSES::WriteToFile(string username,vector<ACCOUNT> Expenses) {
 double EXPENSES::TotalExpense(vector<ACCOUNT> Expenses){
   double Total=0;
   for (int i=0;i<Expenses.size();i++){
-    Total+=Expenses[i].getamount()
+    Total+=Expenses[i].getamount();
   }
   return Total;
 }
