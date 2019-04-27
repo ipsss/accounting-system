@@ -51,10 +51,22 @@ int main() {
     cout << "Please restart again" <<endl;
     exit(1);
   }
-  
   USER u1(id,password);
   INCOMES MyIncomes;
   EXPENSES MyExpenses;
+  cout << "-----------------------------------------------------------------------------------------------" <<endl;
+  cout << "You can do the following options: " << endl;
+  cout << "Input \"Logout\" to Exit program" << endl;
+  cout << "Input \"Add Income\" to add records of income" << endl;
+  cout << "Input \"Add Expense\" to add records of expense" << endl;
+  cout << "Input \"Delete Income\" or \"Edit Income\" to delete or edit personal income records" << endl;
+  cout << "Input \"Delete Expense\" or \"Edit Expense\" to delete or edit personal expense records" << endl;
+  cout << "Input \"Budget Setting\" to set budget" << endl;
+  cout << "Input \"Use Interest Calculator\" to use simple interest calculator" << endl;
+  cout << "Input \"Read Income Records\" to access your income records" << endl;
+  cout << "Input \"Read Expense Records\" to access your expense records" << endl;
+  cout << "-----------------------------------------------------------------------------------------------" <<endl;
+  cout << endl;
   cout << "What do you want to do?" << endl;
   getline(cin,commend);
   while (commend!="Logout") {
@@ -81,7 +93,7 @@ int main() {
         }
       }
     }
-    
+
     else if (commend=="Add Income") {
       cout << "How many incomes you want to add?" << endl;
       cin >> num;
@@ -122,9 +134,59 @@ int main() {
         ACCOUNT MyAccount(record,date,month,year,amount,types,account);
         MyIncomes.AddIncomes(MyAccount);
       }
+      MyIncomes.setIncome(MyIncomes.SortIncomes(MyIncomes.getIncome()));
     }
-    else if (commend=="Read Income Records")
+
+    else if (commend=="Delete Income") {
+      MyIncomes.setIncome(MyIncomes.SortIncomes(MyIncomes.getIncome()));
       MyIncomes.ReadFromIncomes(MyIncomes.getIncome());
+      if (MyIncomes.SearchIncomes(MyIncomes.getIncome()))
+        MyIncomes.DeleteIncomes(MyIncomes.getIndex());
+      else
+        cout << "Result not found!" << endl;
+    }
+
+    else if (commend=="Edit Income") {
+      MyIncomes.setIncome(MyIncomes.SortIncomes(MyIncomes.getIncome()));
+      MyIncomes.ReadFromIncomes(MyIncomes.getIncome());
+      if (MyIncomes.SearchIncomes(MyIncomes.getIncome())) {
+        record="Income";
+        cout << "Enter the year" << endl;
+        cin >> year;
+        while (!YearRange(year)) {
+          cout << "Re-enter the year" << endl;
+          cin >> year;
+        }
+        cout << "Enter the month" << endl;
+        cin >> month;
+        while (!MonthRange(month)) {
+          cout << "Re-enter the month" << endl;
+          cin >> month;
+        }
+        cout << "Enter the date" << endl;
+        cin >> date;
+        while (!DateRange(date,month,year)) {
+          cout << "Re-enter the date" << endl;
+          cin >> date;
+        }
+        cout << "Enter the amount" << endl;
+        cin >> amount;
+        cout << "Enter the type of income, like selling goods,salary,etc." << endl;
+        cin.ignore();
+        getline(cin,types);
+        cout << "Enter the kind of account for the income, like cash,bank card account,etc." << endl;
+        getline(cin,account);
+        ACCOUNT MyAccount(record,date,month,year,amount,types,account);
+        MyIncomes.EditIncomes(MyAccount,MyIncomes.getIndex());
+      }
+      else
+        cout << "Result not found!" << endl;
+    }
+
+    else if (commend=="Read Income Records") {
+      MyIncomes.setIncome(MyIncomes.SortIncomes(MyIncomes.getIncome()));
+      MyIncomes.ReadFromIncomes(MyIncomes.getIncome());
+    }
 
     else if (commend=="Add Expense") {
       cout << "How many expenses you want to add?" << endl;
@@ -166,18 +228,71 @@ int main() {
         ACCOUNT MyAccount(record,date,month,year,amount,types,account);
         MyExpenses.AddExpenses(MyAccount);
       }
+      MyExpenses.setExpenses(MyExpenses.SortExpenses(MyExpenses.getExpenses()));
     }
-    
-    else if (commend=="Read Expense Records")
+
+    else if (commend=="Delete Expense") {
+      MyExpenses.setExpenses(MyExpenses.SortExpenses(MyExpenses.getExpenses()));
       MyExpenses.ReadFromExpenses(MyExpenses.getExpenses());
+      if (MyExpenses.SearchExpenses(MyExpenses.getExpenses()))
+        MyExpenses.DeleteExpenses(MyExpenses.getIndex());
+      else
+        cout << "Result not found!" << endl;
+    }
+
+    else if (commend=="Edit Expense") {
+      MyExpenses.setExpenses(MyExpenses.SortExpenses(MyExpenses.getExpenses()));
+      MyExpenses.ReadFromExpenses(MyExpenses.getExpenses());
+      if (MyExpenses.SearchExpenses(MyExpenses.getExpenses())) {
+        record="Expense";
+        cout << "Enter the year" << endl;
+        cin >> year;
+        while (!YearRange(year)) {
+          cout << "Re-enter the year" << endl;
+          cin >> year;
+        }
+        cout << "Enter the month" << endl;
+        cin >> month;
+        while (!MonthRange(month)) {
+          cout << "Re-enter the month" << endl;
+          cin >> month;
+        }
+        cout << "Enter the date" << endl;
+        cin >> date;
+        while (!DateRange(date,month,year)) {
+          cout << "Re-enter the date" << endl;
+          cin >> date;
+        }
+        cout << "Enter the amount" << endl;
+        cin >> amount;
+        cout << "Enter the type of income, like selling goods,salary,etc." << endl;
+        cin.ignore();
+        getline(cin,types);
+        cout << "Enter the kind of account for the income, like cash,bank card account,etc." << endl;
+        getline(cin,account);
+        ACCOUNT MyAccount(record,date,month,year,amount,types,account);
+        MyExpenses.EditExpenses(MyAccount,MyExpenses.getIndex());
+      }
+      else
+        cout << "Result not found!" << endl;
+    }
+
+    else if (commend=="Read Expense Records") {
+      MyExpenses.setExpenses(MyExpenses.SortExpenses(MyExpenses.getExpenses()));
+      MyExpenses.ReadFromExpenses(MyExpenses.getExpenses());
+    }
 
     else if (commend=="Budget Setting") {
       cout << "Set your Budget Amount: ";
       cin >> new_budget_setting;
+      while (new_budget_setting>100000) {
+        cout << "The maximum amount of budget should not be larger than $100000" << endl;
+        cout << "Set your Budget Amount again: ";
+        cin >> new_budget_setting;
+      }
       SetBudget(budget_setting,new_budget_setting);
-      BudgetAlert(budget_setting,Total_Expense);
     }
-    
+
     else if (commend=="Use Interest Calculator") {
       cout << "Please input our deposit account no.:" << endl;
       getline(cin,bank_no);
@@ -198,5 +313,9 @@ int main() {
     cout << "What do you want to do?" << endl;
     getline(cin,commend);
   }
+  BudgetAlert(budget_setting,Total_Expense);
+  MyIncomes.WriteToFile(id,MyIncomes.getIncome());
+  MyExpenses.WriteToFile(id,MyExpenses.getExpenses());
+  cout << "You report is ready." << endl;
   return 0;
 }
