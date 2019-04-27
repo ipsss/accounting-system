@@ -84,3 +84,19 @@ Input "Read Income Records" for checking income records and "Read Expense Record
 **Instructions**
 
 Input "Budget Setting" to set budget. You will receive an alert in the end if your expenses exceed your budget setting.
+
+## How to start and run the system
+**Instructions**
+
+Run the system in linux environment. Type in the following linux commend in the terminal.
+
+```
+$ make main
+```
+
+If it succeeds, you will find a new exe file in your current directory (your current folder) named **main** and run the following commend in terminal should be able to start the accounting system.
+
+```
+$ ./main
+```
+Hope you found this helpful!! Thank you!
