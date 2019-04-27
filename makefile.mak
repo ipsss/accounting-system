@@ -14,3 +14,5 @@ TimeSetting.o: TimeSetting.cpp TimeSetting.h
 	g++ -c TimeSetting.cpp
 main.o: user.o account.o incomes.o expenses.o interestcal.o BudgetSetting.o TimeSetting.o main.cpp
 	g++ -c main.cpp
+accounting_system:main.o incomes.o expenses.o user.o account.o interestcal.o BudgetSetting.o TimeSetting.o
+	g++ main.o incomes.o expenses.o user.o account.o interestcal.o BudgetSetting.o TimeSetting.o -o accounting_system
