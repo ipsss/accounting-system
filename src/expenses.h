@@ -20,9 +20,9 @@ class EXPENSES {
     void AddExpenses(ACCOUNT new_account);
     void DeleteExpenses(unsigned int);
     void EditExpenses(ACCOUNT new_account,unsigned int);
-    //void SortExpenses(vector<ACCOUNT>);
+    void SortExpenses(vector<ACCOUNT>);
     void ReadFromExpenses(vector <ACCOUNT>);
-    //void WriteToExpenses();
+    void WriteToExpenses(vector<ACCOUNT>,string);
 
   private:
     vector<ACCOUNT> Expenses;

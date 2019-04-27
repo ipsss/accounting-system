@@ -8,7 +8,8 @@ using namespace std;
 vector<ACCOUNT> INCOMES::getIncome() {return Incomes;}
 unsigned int INCOMES::getIndex() {return index;}
 
-void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes,unsigned int *index){
+void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes){
+  unsigned int new_index;
   int search_date,search_month,search_year; double search_amount;
   string search_types,search_account;
   cout << "Enter the date: " << endl;
@@ -26,11 +27,12 @@ void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes,unsigned int *index){
   getline(cin,search_account);
   for (int i=0; i < Incomes.size(); i++) {
     if (Incomes[i].getdate()==search_date&&Incomes[i].getmonth()==search_month&&Incomes[i].getyear()==search_year&&Incomes[i].getamount()==search_amount&&Incomes[i].gettypes()==search_types&&Incomes[i].getaccount()==search_account)
-      index=i;
+      new_index=i;
     else {
       cout << "Result not found!" << endl;
     }
   }
+  index=new_index;
 }
 void INCOMES::AddIncomes(ACCOUNT new_account){
   Incomes.push_back(new_account);
@@ -76,8 +78,8 @@ void INCOMES::ReadFromIncomes(vector<ACCOUNT> Incomes) {
     cout << endl;
   }
 }
-void INCOMES::WriteToIncomes(vector<ACCOUNT> Incomes) {
-  ofstream fout("userID_Incomes.txt");
+void INCOMES::WriteToIncomes(vector<ACCOUNT> Incomes,string userid) {
+  ofstream fout((userid+"_Incomes.txt").c_str());
   if (!fout){
     cout << "Cannot open text file!" << endl;
   }

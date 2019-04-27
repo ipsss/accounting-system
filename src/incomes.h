@@ -20,13 +20,13 @@ class INCOMES {
     vector<ACCOUNT> getIncome();
     unsigned int getIndex();
 
-    void SearchIncomes(vector<ACCOUNT>,unsigned int);
+    void SearchIncomes(vector<ACCOUNT>);
     void AddIncomes(ACCOUNT new_account);
     void DeleteIncomes(vector<ACCOUNT>,unsigned int);
     void EditIncomes(ACCOUNT new_account,unsigned int);
     void SortIncomes(vector<ACCOUNT>);
     void ReadFromIncomes(vector <ACCOUNT>);
-    void WriteToIncomes(vector<ACCOUNT>);
+    void WriteToIncomes(vector<ACCOUNT>,string);
 
   private:
     vector<ACCOUNT> Incomes;

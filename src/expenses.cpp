@@ -27,11 +27,12 @@ void EXPENSES::SearchExpenses(vector<ACCOUNT> Expenses){
   getline(cin,search_account);
   for (int i=0; i < Expenses.size(); i++) {
     if (Expenses[i].getdate()==search_date&&Expenses[i].getmonth()==search_month&&Expenses[i].getyear()==search_year&&Expenses[i].getamount()==search_amount&&Expenses[i].gettypes()==search_types&&Expenses[i].getaccount()==search_account)
-      index=new_index;
+      new_index=i;
     else {
       cout << "Result not found!" << endl;
     }
   }
+  index=new_index;
 }
 //Function: Add single Expense Record to the vector of Expense Records
 void EXPENSES::AddExpenses(ACCOUNT new_account){
@@ -41,12 +42,15 @@ void EXPENSES::AddExpenses(ACCOUNT new_account){
 void EXPENSES::DeleteExpenses(unsigned int index){
   Expenses.erase(Expenses.begin()+index);
 }
-//Function: Change the target Expense Record in the vector of Expense Records 
+//Function: Change the target Expense Record in the vector of Expense Records
 void EXPENSES::EditExpenses(ACCOUNT new_account,unsigned int index){
   Expenses[index]=new_account;
 }
 
-//void EXPENSES::SortExpenses(vector<ACCOUNT>) {}
+
+void EXPENSES::SortExpenses(vector<ACCOUNT> Expenses) {
+sort(Expenses.begin(),Expenses.end(),compare);
+}
 
 //Function: Read all the inputted Expenses Records
 void EXPENSES::ReadFromExpenses(vector<ACCOUNT> Expenses) {
@@ -61,6 +65,19 @@ void EXPENSES::ReadFromExpenses(vector<ACCOUNT> Expenses) {
     cout << endl;
   }
 }
-//void EXPENSES::WriteToExpenses() {}
+void EXPENSES::WriteToExpenses(vector<ACCOUNT>Expenses,string userid) {
+      ofstream fout((userid+"_Expenses.txt").c_str());
+  if (!fout){
+    cout << "Cannot open text file!" << endl;
+  for (int i = 0; i < Expenses.size(); i++) {
+    fout << Expenses[i].getrecord() << endl;
+    fout << "Date: " << Expenses[i].getdate() << endl;
+    fout << "Month: " << Expenses[i].getmonth() << endl;
+    fout << "Year: " << Expenses[i].getyear() << endl;
+    fout << "Amount: " << fixed << setprecision(2) << Expenses[i].getamount() << endl;
+    fout << "Types of Expense: " << Expenses[i].gettypes() << endl;
+    fout << "The kind of account for the Expense: " << Expenses[i].getaccount() << endl;
+    fout << endl;
+}
 
 #endif
