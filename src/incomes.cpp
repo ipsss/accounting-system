@@ -1,16 +1,15 @@
 #ifndef __INCOMES_CPP__
 #define __INCOMES_CPP__
 #include "incomes.h"
-#include "account.h"
-#include "account.cpp"
+
 using namespace std;
 
 
-vector<ACCOUNT> INCOMES::getincome() {return Incomes;}
+vector<ACCOUNT> INCOMES::getIncome() {return Incomes;}
 unsigned int INCOMES::getIndex() {return index;}
 
-void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes){
-  unsigned int index;  int search_date,search_month,search_year; double search_amount;
+void INCOMES::SearchIncomes(vector<ACCOUNT> Incomes,unsigned int *index){
+  int search_date,search_month,search_year; double search_amount;
   string search_types,search_account;
   cout << "Enter the date: " << endl;
   cin >> search_date;
@@ -38,7 +37,7 @@ void INCOMES::AddIncomes(ACCOUNT new_account){
 }
 
 //BUGGED
-void INCOMES::DeleteIncomes(Incomes,SearchIncomes(Incomes)){
+void INCOMES::DeleteIncomes(vector<ACCOUNT>Incomes,unsigned int index){
   Incomes.erase(Incomes.begin()+index);
 }
 

@@ -7,24 +7,27 @@
 #include <vector>
 #include <fstream>
 #include <iomanip>
+#include "account.h"
+#include "account.cpp"
+using namespace std;
 
 class INCOMES {
   public:
-  
+
     unsigned int index;
-  
+
     INCOMES(); //default constructor
-    vector<ACCOUNT> getincome();
+    vector<ACCOUNT> getIncome();
     unsigned int getIndex();
-  
-    void SearchIncomes(vector<ACCOUNT>);
+
+    void SearchIncomes(vector<ACCOUNT>,unsigned int);
     void AddIncomes(ACCOUNT new_account);
     void DeleteIncomes(vector<ACCOUNT>,unsigned int);
     void EditIncomes(ACCOUNT new_account,unsigned int);
     void SortIncomes(vector<ACCOUNT>);
     void ReadFromIncomes(vector <ACCOUNT>);
-    void WriteToIncomes(vector<ACCOUNT> Incomes);
-  
+    void WriteToIncomes(vector<ACCOUNT>);
+
   private:
     vector<ACCOUNT> Incomes;
 };
