@@ -309,7 +309,7 @@ int main() {
       MyInterest.Durationselection(MyInterest.getTime());
       MyInterest.WriteInterest(id);
     }
-
+    cout << "Your total income and expense are " << TotalIncome(MyIncomes) << " " << TotalExpense(MyExpenses) << " respectively." << endl;
     cout << "What do you want to do?" << endl;
     getline(cin,commend);
   }
