@@ -129,7 +129,7 @@ void INCOMES::WriteToFile(string username,vector<ACCOUNT> Incomes) {
 double INCOMES::TotalIncome(vector<ACCOUNT> Incomes){
   double Total=0;
   for (int i=0;i<Incomes.size();i++){
-    Total+=Incomes[i].getamount()
+    Total+=Incomes[i].getamount();
   }
   return Total;
 }
