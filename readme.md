@@ -19,7 +19,6 @@ The records would contain date, amount, usage and any other personal information
 This accounting system allows users to set their own budget so they will receive alert when their total expenses is larger than the budget setting in order to prevent over-consumption.
 
 The check function allows users to review all the records and display the total amount of consumption and income when the users access their personal record. 
-Users could check monthly income/expenses records and the percentages of monthly corresponding activities.
 
 The accounting system provides interest calculator. 
 It allows users to calculate interest according to the corresponding interest rate of their bank accounts.
