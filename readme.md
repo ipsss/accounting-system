@@ -34,6 +34,7 @@ This system provides login system.
 ## How to use this system
 
 **Instructions**
+
 For the first time using the system, an account need to be created first. User ID and Password is needed to create the account. After creating the account, furthur command can be input to start recording incomes/expenses.
 Then, everytime accessing the sytem, the account can be reused. (Users could create new account as they like)
 Also, the function of changing password is provided. Users need to input their User ID and old Password to change the password.
@@ -54,7 +55,8 @@ After that, input different data according to the instrution of the screen.
 
 Fisrt, input "Delete Income" for income or "Delete Expense" for expense.
 Records will be displayed on the screen for your reference.
-Then, input the data of the records according to the instructions dispalyed on screen.
+Then, input the data of the records according to the instructions dispalyed on screen. The system will ask you to input data of 
+corresponding record for searching. The input data must be exactly the same as the original record that you have input (It is case sensitive).
 
 ## How to edit an expense/income record
 
@@ -62,7 +64,8 @@ Then, input the data of the records according to the instructions dispalyed on s
 
 Fisrt, input "Edit Income" for income or "Edit Expense" for expense.
 Records will be displayed on the screen for your reference.
-Then, input the data of the records according to the instructions dispalyed on screen.
+Then, input the data of the records according to the instructions dispalyed on screen. The system will ask you to input data of 
+corresponding record for searching. The input data must be exactly the same as the original record that you have input (It is case sensitive).
 
 ## How to use interest calculator
 
