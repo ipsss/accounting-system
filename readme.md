@@ -37,6 +37,8 @@ For the first time using the system, an account need to be created first. User I
 Then, everytime accessing the sytem, the account can be reused.
 Also, the function of changing password is provided. Users need to input their User ID and old Password to change the password.
 
+All the function below can be processed only after login to our system.
+
 ## How to add an expense/income record
 
 **Instructions**
