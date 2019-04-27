@@ -36,6 +36,9 @@ class INCOMES {
     //File Output. File storing all income records from the user
     //This function would create (update) the file called "(userid)_Incomes.txt"
     void WriteToIncomes(vector<ACCOUNT>,string);
+  
+    //Calculate total amount of income
+    double TotalIncome(vector<ACCOUNT>);
 
   private:
     vector<ACCOUNT> Incomes;
