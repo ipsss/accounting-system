@@ -33,22 +33,36 @@ It allows users to calculate interest according to the corresponding interest ra
 ## How to use this system
 
 **Instructions**
+The first time using the system, an account need to be created first. User ID and Password is needed to create the account. After creating the account, furthur command can be input to start recording incomes/expenses.
+Then, everytime accessing the sytem, the account can be reused.
+Also, the function of changing password is provided. Users need to input their User ID and old Password to change the password.
 
 ## How to add an expense/income record
 
 **Instructions**
-
+Fisrt, input "Add Income" for income or "Add Expenses" for expense.
+Then, input the number of records you want to add.
+After that, input different data according to the instrution of the screen. 
 ## How to delete an expense/income record
 
 **Instructions**
+Fisrt, input "Delete Income" for income or "Delete Expenses" for expense.
+Records will be displayed on the screen for your reference.
+Then, input the data of the records according to the instructions dispalyed on screen.
 
 ## How to edit an expense/income record
 
 **Instructions**
+Fisrt, input "Edit Income" for income or "Edit Expenses" for expense.
+Records will be displayed on the screen for your reference.
+Then, input the data of the records according to the instructions dispalyed on screen.
 
 ## How to use interest calculator
 
 **Instructions**
-
+First, input "Use Interest Calculator".
+Then, input according the requirement displayed on screen.
+The calculated interest will display on the screen.
 ## How to check your record
 **Instructions**
+Input "Read Income Records" for checking income records and "Read Expense Records" for checking Expense records
