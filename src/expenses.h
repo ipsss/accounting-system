@@ -20,6 +20,7 @@ class EXPENSES {
     void AddExpenses(ACCOUNT new_account);
     void DeleteExpenses(unsigned int);
     void EditExpenses(ACCOUNT new_account,unsigned int);
+    bool compare(ACCOUNT, ACCOUNT);
     void SortExpenses(vector<ACCOUNT>);
     void ReadFromExpenses(vector <ACCOUNT>);
     void WriteToExpenses(vector<ACCOUNT>,string);
