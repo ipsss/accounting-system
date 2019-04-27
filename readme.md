@@ -7,7 +7,7 @@ There is a rising trend of over-consumption habit of people nowadays. Since it i
 This accounting system would like to help users to manage their financial status more cleverly and smartly.
 This accounting system aims to create a useful tool for users to keep track on their income and expenses and tracing their money flow so all expenses can be presented precisely, and nurture users with the habit of saving money.
 
-This accounting system is only suitable for certain users (Total monthly cash flow <= $100000).
+This accounting system is only suitable for certain users (Total Expense <= $100000).
 The target of this accouting system is those who want to control their financial status.
 
 **Program features**
@@ -23,9 +23,11 @@ The check function allows users to review all the records and display the total 
 The accounting system provides interest calculator. 
 It allows users to calculate interest according to the corresponding interest rate of their bank accounts.
 
+This system provides login system.
+
 **Problem assumption**
 
-- Total monthly cash flow <= $100000
+- Total Expense <= $100000
 - Maximum number of bank accounts for interest calculation = 1
 - Target primary clients --> University students
 
@@ -33,7 +35,7 @@ It allows users to calculate interest according to the corresponding interest ra
 
 **Instructions**
 For the first time using the system, an account need to be created first. User ID and Password is needed to create the account. After creating the account, furthur command can be input to start recording incomes/expenses.
-Then, everytime accessing the sytem, the account can be reused.
+Then, everytime accessing the sytem, the account can be reused. (Users could create new account as they like)
 Also, the function of changing password is provided. Users need to input their User ID and old Password to change the password.
 
 All the function below can be processed only after login to our system.
@@ -42,7 +44,7 @@ All the function below can be processed only after login to our system.
 
 **Instructions**
 
-Fisrt, input "Add Income" for income or "Add Expenses" for expense.
+Fisrt, input "Add Income" for income or "Add Expense" for expense.
 Then, input the number of records you want to add.
 After that, input different data according to the instrution of the screen. 
 
@@ -50,7 +52,7 @@ After that, input different data according to the instrution of the screen.
 
 **Instructions**
 
-Fisrt, input "Delete Income" for income or "Delete Expenses" for expense.
+Fisrt, input "Delete Income" for income or "Delete Expense" for expense.
 Records will be displayed on the screen for your reference.
 Then, input the data of the records according to the instructions dispalyed on screen.
 
@@ -58,7 +60,7 @@ Then, input the data of the records according to the instructions dispalyed on s
 
 **Instructions**
 
-Fisrt, input "Edit Income" for income or "Edit Expenses" for expense.
+Fisrt, input "Edit Income" for income or "Edit Expense" for expense.
 Records will be displayed on the screen for your reference.
 Then, input the data of the records according to the instructions dispalyed on screen.
 
@@ -74,3 +76,8 @@ The calculated interest will display on the screen.
 **Instructions**
 
 Input "Read Income Records" for checking income records and "Read Expense Records" for checking Expense records.
+
+## How to set your own budget
+**Instructions**
+
+Input "Budget Setting" to set budget. You will receive an alert in the end if your expenses exceed your budget setting.
