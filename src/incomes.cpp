@@ -95,5 +95,12 @@ void INCOMES::WriteToIncomes(vector<ACCOUNT> Incomes,string userid) {
   }
   fout.close();
 }
+double TotalIncome(vector<ACCOUNT> Incomes){
+  double Total=0;
+  for (int i=0;i<Incomes.size();i++){
+    Total+=Incomes[i].getamount()
+  }
+  return Total;
+}
 
 #endif

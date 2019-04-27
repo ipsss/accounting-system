@@ -92,5 +92,12 @@ void EXPENSES::WriteToExpenses(vector<ACCOUNT>Expenses,string userid) {
     fout << "The kind of account for the Expense: " << Expenses[i].getaccount() << endl;
     fout << endl;
 }
+double TotalExpense(vector<ACCOUNT> Expenses){
+  double Total=0;
+  for (int i=0;i<Expenses.size();i++){
+    Total+=Expenses[i].getamount()
+  }
+  return Total;
+}
 
 #endif

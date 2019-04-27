@@ -24,6 +24,7 @@ class EXPENSES {
     void SortExpenses(vector<ACCOUNT>);
     void ReadFromExpenses(vector <ACCOUNT>);
     void WriteToExpenses(vector<ACCOUNT>,string);
+    double TotalExpense(vector<ACCOUNT>)
 
   private:
     vector<ACCOUNT> Expenses;

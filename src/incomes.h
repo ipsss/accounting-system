@@ -28,7 +28,7 @@ class INCOMES {
     void SortIncomes(vector<ACCOUNT>);
     void ReadFromIncomes(vector <ACCOUNT>);
     void WriteToIncomes(vector<ACCOUNT>,string);
-
+    double TotalIncome(vector<ACCOUNT>);
   private:
     vector<ACCOUNT> Incomes;
 };
