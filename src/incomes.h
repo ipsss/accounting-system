@@ -15,20 +15,28 @@ class INCOMES {
   public:
 
     unsigned int index;
-
-    INCOMES(); //default constructor
+    
+    //Accessor
     vector<ACCOUNT> getIncome();
     unsigned int getIndex();
+  
+    //Mutator
+    void setIncome(vector<ACCOUNT>);
+    void setIndex(unsigned int);
 
-    void SearchIncomes(vector<ACCOUNT>);
-    void AddIncomes(ACCOUNT new_account);
-    void DeleteIncomes(vector<ACCOUNT>,unsigned int);
-    void EditIncomes(ACCOUNT new_account,unsigned int);
-    bool compare(ACCOUNT, ACCOUNT);
-    void SortIncomes(vector<ACCOUNT>);
-    void ReadFromIncomes(vector <ACCOUNT>);
+    bool SearchIncomes(vector<ACCOUNT>);  //Searching ccorresponding income record
+    void AddIncomes(ACCOUNT new_account); //Add income record
+    void DeleteIncomes(unsigned int);     //Delete the corresponding income record
+    void EditIncomes(ACCOUNT new_account,unsigned int); //Edit corresponding income record
+  
+    vector<ACCOUNT> SortIncomes(vector<ACCOUNT>);  //Sort the income records vector
+    bool compare(ACCOUNT left,ACCOUNT right);      //compare two income records
+    void ReadFromIncomes(vector <ACCOUNT>);        //Show Income records
+  
+    //File Output. File storing all income records from the user
+    //This function would create (update) the file called "(userid)_Incomes.txt"
     void WriteToIncomes(vector<ACCOUNT>,string);
-    double TotalIncome(vector<ACCOUNT>);
+
   private:
     vector<ACCOUNT> Incomes;
 };
