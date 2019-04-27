@@ -309,11 +309,12 @@ int main() {
       MyInterest.Durationselection(MyInterest.getTime());
       MyInterest.WriteInterest(id);
     }
-    cout << "Your total income and expense are " << TotalIncome(MyIncomes) << " " << TotalExpense(MyExpenses) << " respectively." << endl;
+    Total_Expense=MyExpenses.TotalExpense(MyExpenses.getExpenses());
+    cout << "Your current total income and expense are " << MyIncomes.TotalIncome(MyIncomes.getIncome()) << " and " << MyExpenses.TotalExpense(MyExpenses.getExpenses()) << " respectively." << endl;
+    BudgetAlert(budget_setting,Total_Expense);
     cout << "What do you want to do?" << endl;
     getline(cin,commend);
   }
-  BudgetAlert(budget_setting,Total_Expense);
   MyIncomes.WriteToFile(id,MyIncomes.getIncome());
   MyExpenses.WriteToFile(id,MyExpenses.getExpenses());
   cout << "You report is ready." << endl;
