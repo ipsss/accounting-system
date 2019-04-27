@@ -35,7 +35,10 @@ class EXPENSES {
     //File Output. File storing all expense records from the user
     //This function would create (update) the file called "(userid)_Expenses.txt"
     void WriteToFile(string username,vector<ACCOUNT> Expenses);
-
+    
+    //Function: Find the total amount of expense
+    double TotalExpense(vector<ACCOUNT>);
+  
   private:
     vector<ACCOUNT> Expenses;
 };
