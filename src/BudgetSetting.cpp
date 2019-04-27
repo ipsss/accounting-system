@@ -1,7 +1,9 @@
 #ifndef __BUDGETSETTING_CPP__
 #define __BUDGETSETTING_CPP__
 
-//Function: Set Budget
+//default budget setting is $100000 (upper limit)
+double budget_setting=100000;
+//Function: For user to set their own budget
 double SetBudget(double &budget_setting,double &new_budget_setting) {
   budget_setting=new_budget_setting;
 }
