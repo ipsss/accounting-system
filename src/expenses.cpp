@@ -47,6 +47,19 @@ void EXPENSES::EditExpenses(ACCOUNT new_account,unsigned int index){
   Expenses[index]=new_account;
 }
 
+bool compare(ACCOUNT left, ACCOUNT right){
+  if (left.getyear() > right.getyear()){
+    return true;
+  }else if (left.getmonth() > right.getmonth()){
+    return true;
+  }else if (left.getdate() > right.getdate()){
+    return true;
+  }else if (left.getamount() > right.getamount()){
+    return true;
+  }else {
+    return false;
+  }
+}
 
 void EXPENSES::SortExpenses(vector<ACCOUNT> Expenses) {
 sort(Expenses.begin(),Expenses.end(),compare);
